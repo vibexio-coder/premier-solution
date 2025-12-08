@@ -1,0 +1,83 @@
+import React from "react";
+import graph from "../../assets/images/graphbar.webp";
+import arrow from "../../assets/images/arrow.webp";
+import { ThreeIcon, MirrorThreeIcon, MissionIcon } from "../../assets/icons/Icons";
+
+const Consultation = () => {
+    return (
+        <div className="w-full overflow-hidden">
+
+            {/* ================= TOP MISSION SECTION ================= */}
+            <div className="relative bg-[#E2E6E6] py-20 px-6 sm:px-10 lg:px-16 xl:px-[90px] text-center">
+
+                {/* LEFT ARROW */}
+                <img
+                    src={arrow}
+                    alt="arrow"
+                    className=" absolute md:left-[50px] lg:left-[150px] top-4 md:top-[50px] w-[140px] md:w-[200px]"
+                />
+
+                {/* RIGHT GRAPH */}
+                <img
+                    src={graph}
+                    alt="graph"
+                    className=" absolute -right-3 lg:right-[40px] xl:right-[140px] bottom-[0px] w-[160px] md:w-[200px]"
+                />
+
+                {/* CENTER ICON */}
+                <div className="w-[100px] h-[100px] rounded-full bg-[#1C4746] flex items-center justify-center mx-auto mb-6">
+                    <MissionIcon />
+                </div>
+
+                {/* HEADING */}
+                <h2 className="space-grotesk font-bold text-[24px] leading-[24px] tracking-[0.03em] text-center text-[#496C6B]">
+                    Our Mission
+                </h2>
+
+                <div className=" absolute right-[260px] top-[220px]">
+                    <ThreeIcon />
+                </div>
+
+                {/* DESCRIPTION */}
+                <p className="mt-5 poppins font-normal text-[13px] md:text-[16px] leading-[34px] tracking-[0.08em] text-center">
+                    To deliver precise, reliable, and trusted solutions in Tax, GST,
+                    Legal, and Appeals <br className="hidden lg:block" /> matters helping individuals and businesses stay
+                    compliant and stress free
+                </p>
+
+                {/* DECORATIVE ICONS */}
+                <div className=" absolute left-[270px] top-[288px]">
+                    <MirrorThreeIcon />
+                </div>
+            </div>
+
+            {/* ================= BOTTOM CTA SECTION ================= */}
+            <div className="relative bg-[#1C4746] py-[70px] px-6 sm:px-10 lg:px-16 xl:px-[90px] text-center overflow-hidden">
+
+                <div className="absolute  top-[-300px] right-[-200px] w-[220px] h-[400px] bg-[#F8F8F8] rounded-full blur-[200px]"></div>
+
+                <div className="absolute bottom-[-300px] left-[-200px] w-[220px] h-[400px] bg-[#F8F8F8] rounded-full  blur-[200px]"></div>
+
+                <div className="relative z-10">
+                    <h3 className="space-grotesk font-bold text-[24px] leading-[24px] tracking-[0.03em] text-center text-white">
+                        Book Your Consultation
+                    </h3>
+
+                    <p className="poppins font-normal text-[16px] leading-[34px] tracking-[0.08em] text-center text-[#F8F8F8] mt-8">
+                        Get expert guidance today
+                    </p>
+
+                    <div className="mt-6 flex justify-center">
+                        <button className="bg-white text-[#1C4746] w-[200px] sm:w-[240px] h-[50px] rounded-[30px] font-poppins font-medium text-[16px] leading-[16px] tracking-[0.03em] text-center shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] cursor-pointer">
+                            Book Consultation
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    );
+};
+
+export default Consultation;
