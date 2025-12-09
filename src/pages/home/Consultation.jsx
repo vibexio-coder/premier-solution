@@ -8,7 +8,7 @@ const Consultation = () => {
         <div className="w-full overflow-hidden">
 
             {/* ================= TOP MISSION SECTION ================= */}
-            <div className="relative bg-[#E2E6E6] py-20 px-6 sm:px-10 lg:px-16 xl:px-[90px] text-center">
+            <div className="relative bg-[#E2E6E6] mt-10 lg:mt-0 py-20 px-6 sm:px-10 lg:px-16 xl:px-[90px] text-center">
 
                 {/* LEFT ARROW */}
                 <img

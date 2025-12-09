@@ -3,15 +3,16 @@ import LandingPage from './LandingPage'
 import ChooseUs from './ChooseUs'
 import Consultation from './Consultation'
 import Testimonials from './Testimonials'
+import AnimatedPage from '../../AnimatedPage'
 
 const Home = () => {
   return (
-    <div>
+    <AnimatedPage>
       <LandingPage/>
       <ChooseUs/>
       <Consultation/>
       <Testimonials/>
-    </div>
+    </AnimatedPage>
   )
 }
 

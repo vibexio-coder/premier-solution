@@ -2,7 +2,7 @@ import React from "react";
 
 const ChooseUs = () => {
   return (
-    <div className="py-[90px] px-6 sm:px-10 lg:px-16 xl:px-[90px]">
+    <div className=" pt-10 lg:py-[90px] px-6 sm:px-10 lg:px-16 xl:px-[90px]">
       
       {/* SECTION TITLE */}
       <h1 className="text-[#496C6B] space-grotesk font-bold text-[24px] leading-[24px] tracking-[0.03em] text-center mb-[30px]">

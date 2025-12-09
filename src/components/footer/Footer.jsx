@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../assets/images/logo.webp";
 import { MailIcon, PhoneIcon2, WhatsappIcon } from "../../assets/icons/Icons";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -17,8 +18,7 @@ const Footer = () => {
         space-grotesk font-bold 
         text-[16px] sm:text-[18px] xl:text-[20px] 
         leading-[20px] tracking-[0.03em] 
-        mt-6 text-center
-      ">
+        mt-6 text-center sm:list-disc">
         <li>Tax Services</li>
         <li>Finance & Investment Advisory</li>
         <li>Legal Advisory</li>
@@ -37,10 +37,23 @@ const Footer = () => {
         leading-[20px] tracking-[0.03em]
         text-center
       ">
-        <li>Home</li>
-        <li>About</li>
-        <li>Services</li>
-        <li>Contact</li>
+        {["/", "/about", "/services", "/contact"].map((path, i) => {
+              const labels = ["Home", "About", "Services", "Contact"];
+              return (
+                <li key={path}>
+                  <NavLink
+                    to={path}
+                    end={path === "/"}
+                    className={({ isActive }) =>
+                      `cursor-pointer pb-[10px] ${isActive ? "active-link font-bold" : ""}`
+                    }
+                   
+                  >
+                    {labels[i]}
+                  </NavLink>
+                </li>
+              );
+            })}
       </ul>
 
       {/* SOCIAL ICONS */}
