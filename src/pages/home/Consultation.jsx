@@ -7,7 +7,6 @@ const Consultation = () => {
     return (
         <div className="w-full overflow-hidden">
 
-            {/* ================= TOP MISSION SECTION ================= */}
             <div className="relative bg-[#E2E6E6] mt-10 lg:mt-0 py-20 px-6 sm:px-10 lg:px-16 xl:px-[90px] text-center">
 
                 {/* LEFT ARROW */}
@@ -34,21 +33,29 @@ const Consultation = () => {
                     Our Mission
                 </h2>
 
-                <div className=" absolute right-[260px] top-[220px]">
-                    <ThreeIcon />
-                </div>
-
                 {/* DESCRIPTION */}
-                <p className="mt-5 poppins font-normal text-[13px] md:text-[16px] leading-[34px] tracking-[0.08em] text-center">
+                <p className="mt-5 poppins font-normal text-[13px] md:text-[16px] leading-[34px] tracking-[0.08em] text-center relative inline-block mx-auto">
+
                     To deliver precise, reliable, and trusted solutions in Tax, GST,
-                    Legal, and Appeals <br className="hidden lg:block" /> matters helping individuals and businesses stay
+                    Legal, and Appeals
+
+                    {/* ICON STAYS CLOSE TO TEXT */}
+                    <span className=" absolute inline-flex align-middle ml-2 -mt-5">
+                        <ThreeIcon />
+                    </span>
+
+                    <br className="hidden lg:block" />
+
+                    matters helping individuals and businesses stay
                     compliant and stress free
+
+                    {/* ICON STAYS CLOSE TO TEXT */}
+                    <span className=" absolute flex align-middle -ml-5 -mt-5">
+                        <MirrorThreeIcon />
+                    </span>
+
                 </p>
 
-                {/* DECORATIVE ICONS */}
-                <div className=" absolute left-[270px] top-[288px]">
-                    <MirrorThreeIcon />
-                </div>
             </div>
 
             {/* ================= BOTTOM CTA SECTION ================= */}
@@ -59,7 +66,7 @@ const Consultation = () => {
                 <div className="absolute bottom-[-300px] left-[-200px] w-[220px] h-[400px] bg-[#F8F8F8] rounded-full  blur-[200px]"></div>
 
                 <div className="relative z-10">
-                    <h3 className="space-grotesk font-bold text-[24px] leading-[24px] tracking-[0.03em] text-center text-white">
+                    <h3 className="space-grotesk font-bold text-[24px] leading-[24px] tracking-[0.03em] text-center text-white ">
                         Book Your Consultation
                     </h3>
 
@@ -68,7 +75,7 @@ const Consultation = () => {
                     </p>
 
                     <div className="mt-6 flex justify-center">
-                        <button className="bg-white text-[#1C4746] w-[200px] sm:w-[240px] h-[50px] rounded-[30px] font-poppins font-medium text-[16px] leading-[16px] tracking-[0.03em] text-center shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] cursor-pointer">
+                        <button className="bg-white text-[#1C4746] w-[200px] sm:w-[240px] h-[50px] rounded-[30px] font-poppins font-medium text-[16px] leading-[16px] tracking-[0.03em] text-center hover:shadow-[0_10px_8px_0_#00000066] transition cursor-pointer duration-200 ease-in-out">
                             Book Consultation
                         </button>
                     </div>

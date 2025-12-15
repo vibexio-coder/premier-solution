@@ -200,7 +200,7 @@ const ServicesCards = () => {
             {/* ONE BUTTON CONTROLS ALL CARDS */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="mt-[26px] space-grotesk font-medium text-[14px] leading-[14px] tracking-[0.03em] border border-white rounded-[20px] px-9 py-[15px] hover:bg-white hover:text-[#496C6B] transition cursor-pointer"
+              className="mt-[26px] space-grotesk font-medium text-[14px] leading-[14px] tracking-[0.03em] border border-white rounded-[20px] px-9 py-[15px] hover:shadow-[0_10px_8px_0_#00000066] transition cursor-pointer duration-200 ease-in-out"
             >
               {isOpen ? "View Less" : "View Details"}
             </button>

@@ -55,11 +55,11 @@ const LandingPage = () => {
               gap-4 sm:gap-5
             "
           >
-            <button className="space-grotesk font-bold w-[200px] sm:w-[240px] h-[50px] text-[#1C4746] bg-white rounded-[30px] cursor-pointer">
+            <button className="space-grotesk font-bold w-[200px] sm:w-[240px] h-[50px] text-[#1C4746] bg-white rounded-[30px] hover:shadow-[0_10px_8px_0_#00000066] transition cursor-pointer duration-200 ease-in-out">
               Book Consultation
             </button>
 
-            <button className="space-grotesk font-bold w-[200px] sm:w-[240px] h-[50px] text-[#F8F8F8] border border-white rounded-[30px] cursor-pointer">
+            <button className="space-grotesk font-bold w-[200px] sm:w-[240px] h-[50px] text-[#F8F8F8] border border-white rounded-[30px] hover:shadow-[0_10px_8px_0_#00000066] transition cursor-pointer duration-200 ease-in-out">
               WhatsApp Chat
             </button>
           </div>

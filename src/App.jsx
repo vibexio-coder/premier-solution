@@ -5,6 +5,7 @@ import Footer from './components/footer/Footer'
 import About from './pages/about/About'
 import { Route, Routes } from 'react-router-dom'
 import Services from './pages/services/Services'
+import Contact from './pages/contact/Contact'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
       <Footer />

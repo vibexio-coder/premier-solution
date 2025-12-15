@@ -41,7 +41,7 @@ const OurProcess = () => {
           {steps.map((item) => (
             <div
               key={item.num}
-              className="group transition-transform duration-300 ease-in-out hover:-translate-y-[40px] w-full flex justify-center"
+              className="group transition-transform duration-500 ease-in-out hover:-translate-y-[40px] w-full flex justify-center"
             >
               <div className="flex flex-col items-center">
                 {/* Number */}

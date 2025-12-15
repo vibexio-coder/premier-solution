@@ -28,14 +28,14 @@ const WeAre = () => {
                 </div>
             </div>
 
-            <div className="w-full overflow-hidden">
+            <div className="w-full overflow-hidden -mt-10">
                 <h1 className='space-grotesk font-bold text-[15.5vw] tracking-[0.03em] text-center text-[#C3CDCD] w-full whitespace-nowrap'>
                     Our Founder
                 </h1>
             </div>
 
-            <div className="px-6 sm:px-10 lg:px-16 xl:px-[90px] mt-10 lg:-mt-10 xl:-mt-16">
-                <div className="flex flex-col lg:flex-row items-center gap-[146px]">
+            <div className="px-6 sm:px-10 lg:px-16 xl:px-[90px] mt-1 lg:-mt-10 xl:-mt-16">
+                <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14 xl:gap-[146px]">
 
                     <div className="w-full lg:w-[498px]">
                         <img
@@ -52,24 +52,24 @@ const WeAre = () => {
                         <img
                             src={circle}
                             alt="circle"
-                            className="absolute -top-6 -left-46 "
+                            className="absolute -top-6 -left-15 lg:-left-20 xl:-left-46 "
                         />
 
                         {/*  Title Row */}
-                        <div className="flex items-center gap-3 -ml-34 mb-4">
+                        <div className="flex items-center gap-3 xl:-ml-34 mb-4">
                             <span className="-space-grotesk font-bold text-[16px] leading-[1] tracking-[0.03em]">
                                 <span className='text-[24px] text-[#1C4746]'>Meet</span> The Founder
                             </span>
                         </div>
 
                         {/*  Name */}
-                        <h3 className="space-grotesk font-bold text-[24px] -ml-11 text-[#1C4746] mb-3 flex items-center gap-[18px]">
+                        <h3 className="space-grotesk font-bold text-[24px] xl:-ml-11 text-[#1C4746] mb-3 flex items-center gap-[18px]">
                             <RightIcon />
                             Adv. R. Sridaran
                         </h3>
 
                         {/*  Description */}
-                        <p className="poppins text-[16px] leading-[32px] mb-6 max-w-[520px]">
+                        <p className="poppins text-[13px] md:text-[16px] leading-[32px] mb-6 max-w-[520px]">
                             A dedicated professional with years of expertise in taxation,
                             legal drafting, compliance management, and representation
                             before authorities.
@@ -77,13 +77,13 @@ const WeAre = () => {
 
                         {/*  Bullet Points */}
                         <ul className="space-y-3">
-                            <li className="flex items-center gap-3 poppins text-[14px] ">
+                            <li className="flex items-center gap-3 poppins text-[12px] md:text-[14px] ">
                                 <TickIcon /> Expert in Tax & GST Compliance
                             </li>
-                            <li className="flex items-center gap-3 poppins text-[14px] ">
+                            <li className="flex items-center gap-3 poppins text-[12px] md:text-[14px] ">
                                 <TickIcon /> Experienced Tribunal Representative
                             </li>
-                            <li className="flex items-center gap-3 poppins text-[14px] ">
+                            <li className="flex items-center gap-3 poppins text-[12px] md:text-[14px] ">
                                 <TickIcon /> Specialized in Legal Documentation
                             </li>
                         </ul>
