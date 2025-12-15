@@ -1,16 +1,28 @@
-import React from 'react'
-import Navbar from './components/navbar/Navbar'
-import Home from './pages/home/Home'
-import Footer from './components/footer/Footer'
-import About from './pages/about/About'
-import { Route, Routes } from 'react-router-dom'
-import Services from './pages/services/Services'
-import Contact from './pages/contact/Contact'
+import React, { useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
+
+import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
+
+import Home from "./pages/home/Home";
+import About from "./pages/about/About";
+import Services from "./pages/services/Services";
+import Contact from "./pages/contact/Contact";
 
 const App = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+    });
+  }, [pathname]);
+
   return (
     <div>
       <Navbar />
+
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -19,9 +31,10 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
+
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

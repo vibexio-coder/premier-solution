@@ -2,6 +2,7 @@ import React from "react";
 import graph from "../../assets/images/graphbar.webp";
 import arrow from "../../assets/images/arrow.webp";
 import { ThreeIcon, MirrorThreeIcon, MissionIcon } from "../../assets/icons/Icons";
+import { Link } from "react-router-dom";
 
 const Consultation = () => {
     return (
@@ -75,9 +76,11 @@ const Consultation = () => {
                     </p>
 
                     <div className="mt-6 flex justify-center">
-                        <button className="bg-white text-[#1C4746] w-[200px] sm:w-[240px] h-[50px] rounded-[30px] font-poppins font-medium text-[16px] leading-[16px] tracking-[0.03em] text-center hover:shadow-[0_10px_8px_0_#00000066] transition cursor-pointer duration-200 ease-in-out">
-                            Book Consultation
-                        </button>
+                        <Link to="/contact">
+                            <button className="bg-white text-[#1C4746] w-[200px] sm:w-[240px] h-[50px] rounded-[30px] font-poppins font-medium text-[16px] leading-[16px] tracking-[0.03em] text-center hover:shadow-[0_10px_8px_0_#00000066] transition cursor-pointer duration-200 ease-in-out">
+                                Book Consultation
+                            </button>
+                        </Link>
                     </div>
                 </div>
 

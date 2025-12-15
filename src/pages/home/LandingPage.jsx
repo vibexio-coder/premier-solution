@@ -1,10 +1,11 @@
 import React from 'react';
 import landingimg from "../../assets/images/landingimg.webp";
+import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
   return (
     <div className="bg-white">
-      
+
       {/* HERO SECTION */}
       <div
         className="
@@ -55,13 +56,20 @@ const LandingPage = () => {
               gap-4 sm:gap-5
             "
           >
-            <button className="space-grotesk font-bold w-[200px] sm:w-[240px] h-[50px] text-[#1C4746] bg-white rounded-[30px] hover:shadow-[0_10px_8px_0_#00000066] transition cursor-pointer duration-200 ease-in-out">
-              Book Consultation
-            </button>
+            <Link to="/contact">
+              <button className="space-grotesk font-bold w-[200px] sm:w-[240px] h-[50px] text-[#1C4746] bg-white rounded-[30px] hover:shadow-[0_10px_8px_0_#00000066] transition cursor-pointer duration-200 ease-in-out">
+                Book Consultation
+              </button>
+            </Link>
 
-            <button className="space-grotesk font-bold w-[200px] sm:w-[240px] h-[50px] text-[#F8F8F8] border border-white rounded-[30px] hover:shadow-[0_10px_8px_0_#00000066] transition cursor-pointer duration-200 ease-in-out">
-              WhatsApp Chat
-            </button>
+            <a href="https://wa.me/917708566732?text=Hello%20I%20would%20like%20to%20know%20more"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chat on WhatsApp">
+              <button className="space-grotesk font-bold w-[200px] sm:w-[240px] h-[50px] text-[#F8F8F8] border border-white rounded-[30px] hover:shadow-[0_10px_8px_0_#00000066] transition cursor-pointer duration-200 ease-in-out">
+                WhatsApp Chat
+              </button>
+            </a>
           </div>
         </div>
 
@@ -84,14 +92,11 @@ const LandingPage = () => {
           h-auto lg:h-[122px]
           mx-6 lg:mx-14 xl:mx-[124px]
           shadow-[0px_4px_4px_rgba(0,0,0,0.5)],
-          shadow-[0px_-4px_4px_rgba(248,248,248,0.2)]
-        mt-8 md:-mt-16
-          rounded-[20px]
-          flex flex-col md:flex-row md:flex-nowrap
+          shadow-[0px_-4px_4px_rgba(248,248,248,0.2)] mt-8 md:-mt-16
+          rounded-[20px] flex flex-col md:flex-row md:flex-nowrap
           justify-center items-center gap-5 lg:gap-10
           md:px-4 lg:px-0 xl:gap-[95px]
-          py-6 lg:py-0
-        "
+          py-6 lg:py-0"
       >
 
         {/* STAT 1 */}

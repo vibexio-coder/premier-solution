@@ -1,5 +1,5 @@
 import React from 'react'
-import {  PhoneIcon3, WhatsappIcon2, MailIcon2 } from '../../assets/icons/Icons'
+import { PhoneIcon3, WhatsappIcon2, MailIcon2 } from '../../assets/icons/Icons'
 
 const ContactLandingPage = () => {
     return (
@@ -24,11 +24,35 @@ const ContactLandingPage = () => {
                     Get in touch with our team. We're here to help you with all your tax, finance, and legal needs.
                 </p>
 
-                  <div className="flex gap-[30px] sm:gap-[45px] pt-6 justify-center lg:justify-start">
+                <div className="flex gap-[30px] sm:gap-[45px] pt-6 justify-center lg:justify-start">
+                    {/* Phone */}
+                    <a
+                        href="tel:+917708566732"
+                        aria-label="Call us"
+                    >
                         <PhoneIcon3 />
+                    </a>
+
+                    {/* WhatsApp */}
+                    <a
+                        href="https://wa.me/917708566732?text=Hello%20I%20would%20like%20to%20know%20more"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Chat on WhatsApp"
+                    >
                         <WhatsappIcon2 />
+                    </a>
+
+                    {/* Email */}
+                    <a
+                        href="mailto:info@yourcompany.com?subject=Service%20Enquiry"
+                        aria-label="Send email"
+                    >
                         <MailIcon2 />
-                      </div>
+                    </a>
+
+
+                </div>
             </div>
 
 

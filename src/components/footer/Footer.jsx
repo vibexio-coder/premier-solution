@@ -38,30 +38,53 @@ const Footer = () => {
         text-center
       ">
         {["/", "/about", "/services", "/contact"].map((path, i) => {
-              const labels = ["Home", "About", "Services", "Contact"];
-              return (
-                <li key={path}>
-                  <NavLink
-                    to={path}
-                    end={path === "/"}
-                    className={({ isActive }) =>
-                      `cursor-pointer pb-[10px] ${isActive ? "active-link font-bold" : ""}`
-                    }
-                   
-                  >
-                    {labels[i]}
-                  </NavLink>
-                </li>
-              );
-            })}
+          const labels = ["Home", "About", "Services", "Contact"];
+          return (
+            <li key={path}>
+              <NavLink
+                to={path}
+                end={path === "/"}
+                className={({ isActive }) =>
+                  `cursor-pointer pb-[10px] ${isActive ? "active-link font-bold" : ""}`
+                }
+
+              >
+                {labels[i]}
+              </NavLink>
+            </li>
+          );
+        })}
       </ul>
 
       {/* SOCIAL ICONS */}
       <div className="flex gap-[30px] sm:gap-[45px] pt-6">
-        <PhoneIcon2 />
-        <WhatsappIcon />
-        <MailIcon />
+        {/* Phone */}
+        <a
+          href="tel:+7708566732"
+          aria-label="Call us"
+        >
+          <PhoneIcon2 />
+        </a>
+
+        {/* WhatsApp */}
+        <a
+          href="https://wa.me/7708566732?text=Hello%20I%20would%20like%20to%20know%20more"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat on WhatsApp"
+        >
+          <WhatsappIcon />
+        </a>
+
+        {/* Email */}
+        <a
+          href="mailto:info@yourcompany.com?subject=Service%20Enquiry"
+          aria-label="Send email"
+        >
+          <MailIcon />
+        </a>
       </div>
+
 
       {/* LEGAL TEXT */}
       <p className="

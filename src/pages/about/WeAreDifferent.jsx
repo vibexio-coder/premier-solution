@@ -55,7 +55,7 @@ const WeAreDifferent = () => {
             <ul className="space-y-7 sm:space-y-[34px] poppins font-light text-[13px] sm:text-[16px] leading-[140%] tracking-[0.03em] text-center">
               <li>Full-spectrum expertise in Taxation, GST, Legal & Litigation</li>
               <li>Ultra-responsive support team</li>
-              <li>Seamless documentation – filing – representation</li>
+              <li>Seamless documentation, Filing, Representation</li>
               <li>Strategic guidance supported by updated case laws & circulars</li>
               <li>Enterprise-grade confidentiality & data protection</li>
             </ul>

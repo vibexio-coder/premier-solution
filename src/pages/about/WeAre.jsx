@@ -52,7 +52,7 @@ const WeAre = () => {
                         <img
                             src={circle}
                             alt="circle"
-                            className="absolute -top-6 -left-15 lg:-left-20 xl:-left-46 "
+                            className="absolute -top-8 -left-15 lg:-left-20 xl:-left-48 "
                         />
 
                         {/*  Title Row */}
