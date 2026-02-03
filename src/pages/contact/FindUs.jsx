@@ -5,7 +5,7 @@ import { SendIcon } from "../../assets/icons/Icons";
 const FindUs = () => {
     const [formData, setFormData] = useState({
         name: "",
-        phone: "",
+        phone: "+91 ",
         email: "",
         service: "",
         message: "",
@@ -54,7 +54,41 @@ const FindUs = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        
+        // Phone number handling with +91 prefix
+        if (name === "phone") {
+            // Only allow digits and backspace for actual number entry
+            // Keep +91 prefix always
+            if (value.startsWith("+91 ")) {
+                // Extract only the number part after +91 
+                const numberPart = value.substring(4);
+                // Allow only digits for the actual number
+                const numbersOnly = numberPart.replace(/[^\d]/g, '');
+                // Limit to 10 digits after +91
+                const limitedNumbers = numbersOnly.slice(0, 10);
+                setFormData({ ...formData, [name]: "+91 " + limitedNumbers });
+            } else if (value.length < 4) {
+                // If user tries to delete +91, restore it
+                setFormData({ ...formData, [name]: "+91 " });
+            } else {
+                // If somehow prefix is missing, add it back
+                setFormData({ ...formData, [name]: "+91 " + value.replace(/[^\d]/g, '').slice(0, 10) });
+            }
+        } 
+        // Name field - prevent numbers
+        else if (name === "name") {
+            // Allow only letters, spaces, and common name characters
+            const lettersOnly = value.replace(/[^A-Za-z\s\-'.]/g, '');
+            setFormData({ ...formData, [name]: lettersOnly });
+        }
+        // Email field - basic validation while typing
+        else if (name === "email") {
+            setFormData({ ...formData, [name]: value });
+        }
+        // Other fields
+        else {
+            setFormData({ ...formData, [name]: value });
+        }
 
         // Clear error when user starts typing
         if (errors[name]) {
@@ -70,31 +104,55 @@ const FindUs = () => {
         };
         let isValid = true;
 
+        // Name validation
         if (!formData.name.trim()) {
             newErrors.name = "Name is required";
             showNotification("error", "Name is required");
             isValid = false;
+        } else if (/[0-9]/.test(formData.name)) {
+            newErrors.name = "Name should not contain numbers";
+            if (isValid) showNotification("error", "Name should not contain numbers");
+            isValid = false;
+        } else if (formData.name.trim().length < 2) {
+            newErrors.name = "Name should be at least 2 characters";
+            if (isValid) showNotification("error", "Name should be at least 2 characters");
+            isValid = false;
         }
 
-        if (!formData.phone.trim()) {
+        // Phone validation
+        const phoneNumber = formData.phone.substring(4); // Remove "+91 " prefix
+        if (!phoneNumber.trim()) {
             newErrors.phone = "Phone number is required";
             if (isValid) showNotification("error", "Phone number is required");
             isValid = false;
-        } else if (formData.phone.length < 10 || !/^\d+$/.test(formData.phone)) {
+        } else if (phoneNumber.length !== 10 || !/^\d+$/.test(phoneNumber)) {
             newErrors.phone = "Enter a valid 10-digit phone number";
             if (isValid) showNotification("error", "Enter a valid 10-digit phone number");
             isValid = false;
         }
 
+        // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!formData.email.trim()) {
             newErrors.email = "Email is required";
             if (isValid) showNotification("error", "Email is required");
             isValid = false;
         } else if (!emailRegex.test(formData.email)) {
-            newErrors.email = "Enter a valid email address";
-            if (isValid) showNotification("error", "Enter a valid email address");
+            newErrors.email = "Enter a valid email address (must contain @ and domain)";
+            if (isValid) showNotification("error", "Enter a valid email address (must contain @ and domain)");
             isValid = false;
+        } else if (!formData.email.includes('@')) {
+            newErrors.email = "Email must contain @ symbol";
+            if (isValid) showNotification("error", "Email must contain @ symbol");
+            isValid = false;
+        } else {
+            // Additional check for proper email format
+            const parts = formData.email.split('@');
+            if (parts.length !== 2 || !parts[0] || !parts[1] || !parts[1].includes('.')) {
+                newErrors.email = "Enter a valid email address";
+                if (isValid) showNotification("error", "Enter a valid email address");
+                isValid = false;
+            }
         }
 
         setErrors(newErrors);
@@ -126,9 +184,10 @@ const FindUs = () => {
             // Show success notification
             showNotification("success", "Message sent successfully! We'll contact you soon.");
 
+            // Reset form but keep +91 in phone
             setFormData({
                 name: "",
-                phone: "",
+                phone: "+91 ",
                 email: "",
                 service: "",
                 message: "",
@@ -139,6 +198,27 @@ const FindUs = () => {
         }
     };
 
+    // Handle phone field focus to prevent cursor movement before +91
+    const handlePhoneFocus = (e) => {
+        // Move cursor to end of input (after +91 prefix)
+        const input = e.target;
+        setTimeout(() => {
+            input.setSelectionRange(input.value.length, input.value.length);
+        }, 0);
+    };
+
+    // Handle phone field click to prevent editing prefix
+    const handlePhoneClick = (e) => {
+        const input = e.target;
+        const cursorPos = input.selectionStart;
+        
+        // If user tries to click or select before position 4 (after "+91 "), move cursor to end
+        if (cursorPos < 4) {
+            setTimeout(() => {
+                input.setSelectionRange(input.value.length, input.value.length);
+            }, 0);
+        }
+    };
 
     return (
         <div className="bg-[#EDEDED] px-6 sm:px-10 lg:px-16 xl:px-[90px] pt-[28px] pb-16 relative">
@@ -264,9 +344,12 @@ const FindUs = () => {
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
+                                    placeholder="Enter your name"
                                     className="w-full h-[42px] rounded-[30px] px-5 bg-white"
                                 />
-
+                                {errors.name && (
+                                    <p className="text-red-500 text-sm mt-1 ml-2">{errors.name}</p>
+                                )}
                             </div>
 
                             <div>
@@ -277,9 +360,13 @@ const FindUs = () => {
                                     name="phone"
                                     value={formData.phone}
                                     onChange={handleChange}
+                                    onFocus={handlePhoneFocus}
+                                    onClick={handlePhoneClick}
                                     className="w-full h-[42px] rounded-[30px] px-5 bg-white"
                                 />
-
+                                {errors.phone && (
+                                    <p className="text-red-500 text-sm mt-1 ml-2">{errors.phone}</p>
+                                )}
                             </div>
 
                             <div>
@@ -290,9 +377,12 @@ const FindUs = () => {
                                     name="email"
                                     value={formData.email}
                                     onChange={handleChange}
+                                    placeholder="example@domain.com"
                                     className="w-full h-[42px] rounded-[30px] px-5 bg-white"
                                 />
-
+                                {errors.email && (
+                                    <p className="text-red-500 text-sm mt-1 ml-2">{errors.email}</p>
+                                )}
                             </div>
 
                             <div>

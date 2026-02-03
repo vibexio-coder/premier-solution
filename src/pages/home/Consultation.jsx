@@ -41,7 +41,7 @@ const Consultation = () => {
                     Legal, and Appeals
 
                     {/* ICON STAYS CLOSE TO TEXT */}
-                    <span className=" absolute inline-flex align-middle ml-2 -mt-5">
+                    <span className="hidden absolute lg:inline-flex align-middle ml-2 -mt-5">
                         <ThreeIcon />
                     </span>
 
@@ -51,7 +51,7 @@ const Consultation = () => {
                     compliant and stress free
 
                     {/* ICON STAYS CLOSE TO TEXT */}
-                    <span className=" absolute flex align-middle -ml-5 -mt-5">
+                    <span className=" hidden absolute lg:flex align-middle -ml-5 -mt-5">
                         <MirrorThreeIcon />
                     </span>
 

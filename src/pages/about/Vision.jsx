@@ -31,19 +31,17 @@ const Vision = () => {
                 <h2 className="space-grotesk font-bold text-[24px] leading-[24px] tracking-[0.03em] text-center text-[#496C6B]">
                     Our Vision
                 </h2>
-                <div className=" absolute right-[260px] top-[220px]">
-                    <ThreeIcon />
-                </div>
+                <span className="hidden lg:inline-flex align-middle -ml-12 mt-5 absolute">
+                    <MirrorThreeIcon />
+                </span>
+                <p className="mt-5 poppins font-normal text-[13px] md:text-[16px] leading-[34px] tracking-[0.08em] text-center relative inline-block mx-auto">
 
-                {/* DESCRIPTION */}
-                <p className="mt-5 poppins font-normal text-[13px] md:text-[16px] leading-[34px] tracking-[0.08em] text-center">
                     Most trusted and client centric Tax, Finance, and Legal advisory firm.
+                    <span className="hidden lg:inline-flex align-middle -ml-4 -mt-5 absolute">
+                        <ThreeIcon />
+                    </span>
                 </p>
 
-                {/* DECORATIVE ICONS */}
-                <div className=" absolute left-[270px] top-[288px]">
-                    <MirrorThreeIcon />
-                </div>
 
                 <div className="absolute  top-[-200px] right-[-200px] w-[220px] h-[400px] bg-[#1C4746] rounded-full blur-[200px] z-0 overflow-hidden"></div>
             </div>

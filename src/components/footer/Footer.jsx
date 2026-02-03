@@ -102,7 +102,7 @@ const Footer = () => {
         leading-[26px] tracking-[0.03em] 
         text-center text-white pt-[20px] pb-6
       ">
-        @2025 The Premier Solutions. Powered by vibexio
+        @2026 The Premier Solutions. Powered by <a href="https://www.vibexio.ai/" target="_blank" rel="noopener noreferrer">VIBEXIO.AI</a>
       </p>
     </div>
   );
