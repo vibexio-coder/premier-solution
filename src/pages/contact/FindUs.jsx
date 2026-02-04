@@ -54,7 +54,7 @@ const FindUs = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        
+
         // Phone number handling with +91 prefix
         if (name === "phone") {
             // Only allow digits and backspace for actual number entry
@@ -74,7 +74,7 @@ const FindUs = () => {
                 // If somehow prefix is missing, add it back
                 setFormData({ ...formData, [name]: "+91 " + value.replace(/[^\d]/g, '').slice(0, 10) });
             }
-        } 
+        }
         // Name field - prevent numbers
         else if (name === "name") {
             // Allow only letters, spaces, and common name characters
@@ -120,16 +120,25 @@ const FindUs = () => {
         }
 
         // Phone validation
-        const phoneNumber = formData.phone.substring(4); // Remove "+91 " prefix
+        const phoneNumber = formData.phone.substring(4); 
+
         if (!phoneNumber.trim()) {
             newErrors.phone = "Phone number is required";
             if (isValid) showNotification("error", "Phone number is required");
             isValid = false;
-        } else if (phoneNumber.length !== 10 || !/^\d+$/.test(phoneNumber)) {
-            newErrors.phone = "Enter a valid 10-digit phone number";
-            if (isValid) showNotification("error", "Enter a valid 10-digit phone number");
+        }
+        else if (
+            phoneNumber.length !== 10 ||
+            !/^[6-9]\d{9}$/.test(phoneNumber)
+        ) {
+            newErrors.phone = "Enter a valid number (starts with 6, 7, 8, or 9)";
+            if (isValid) showNotification(
+                "error",
+                "Enter a valid number"
+            );
             isValid = false;
         }
+
 
         // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -139,7 +148,7 @@ const FindUs = () => {
             isValid = false;
         } else if (!emailRegex.test(formData.email)) {
             newErrors.email = "Enter a valid email address (must contain @ and domain)";
-            if (isValid) showNotification("error", "Enter a valid email address (must contain @ and domain)");
+            if (isValid) showNotification("error", "Enter a valid email address ");
             isValid = false;
         } else if (!formData.email.includes('@')) {
             newErrors.email = "Email must contain @ symbol";
@@ -211,7 +220,7 @@ const FindUs = () => {
     const handlePhoneClick = (e) => {
         const input = e.target;
         const cursorPos = input.selectionStart;
-        
+
         // If user tries to click or select before position 4 (after "+91 "), move cursor to end
         if (cursorPos < 4) {
             setTimeout(() => {
@@ -226,15 +235,15 @@ const FindUs = () => {
             {notification.show && (
                 <div className="fixed top-4 right-4 z-50 w-80 sm:w-96 animate-slide-in-right">
                     <div className={`rounded-lg shadow-lg overflow-hidden border ${notification.type === "success"
-                            ? "bg-green-50 border-green-200"
-                            : "bg-red-50 border-red-200"
+                        ? "bg-green-50 border-green-200"
+                        : "bg-red-50 border-red-200"
                         }`}>
                         {/* Progress Bar */}
                         <div className="h-1 w-full bg-gray-100">
                             <div
                                 className={`h-full transition-all duration-300 ${notification.type === "success"
-                                        ? "bg-green-500"
-                                        : "bg-red-500"
+                                    ? "bg-green-500"
+                                    : "bg-red-500"
                                     }`}
                                 style={{ width: `${notification.progress}%` }}
                             />
@@ -244,8 +253,8 @@ const FindUs = () => {
                         <div className="p-4 flex items-start">
                             {/* Icon */}
                             <div className={`flex-shrink-0 w-6 h-6 mr-3 mt-0.5 ${notification.type === "success"
-                                    ? "text-green-600"
-                                    : "text-red-600"
+                                ? "text-green-600"
+                                : "text-red-600"
                                 }`}>
                                 {notification.type === "success" ? (
                                     <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -261,14 +270,14 @@ const FindUs = () => {
                             {/* Message */}
                             <div className="flex-1">
                                 <p className={`font-medium ${notification.type === "success"
-                                        ? "text-green-800"
-                                        : "text-red-800"
+                                    ? "text-green-800"
+                                    : "text-red-800"
                                     }`}>
                                     {notification.type === "success" ? "Success!" : "Error!"}
                                 </p>
                                 <p className={`text-sm mt-0.5 ${notification.type === "success"
-                                        ? "text-green-700"
-                                        : "text-red-700"
+                                    ? "text-green-700"
+                                    : "text-red-700"
                                     }`}>
                                     {notification.message}
                                 </p>
