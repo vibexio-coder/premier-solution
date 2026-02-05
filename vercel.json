@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "thepremiers.in"
+        }
+      ],
+      "destination": "https://www.thepremiers.in/$1",
+      "permanent": true
+    }
+  ]
+}
