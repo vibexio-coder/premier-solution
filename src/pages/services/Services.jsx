@@ -5,7 +5,7 @@ import OurProcess from './OurProcess'
 
 const Services = () => {
     return (
-        <div>
+    <div className="mt-15 md:mt-0">
             <ServicesLandingPage />
             <ServicesCards />
             <OurProcess />

@@ -7,12 +7,14 @@ import AnimatedPage from '../../AnimatedPage'
 
 const Home = () => {
   return (
-    <AnimatedPage>
-      <LandingPage/>
-      <ChooseUs/>
-      <Consultation/>
-      <Testimonials/>
-    </AnimatedPage>
+    <div className="mt-15 md:mt-0">
+      <AnimatedPage>
+        <LandingPage/>
+        <ChooseUs/>
+        <Consultation/>
+        <Testimonials/>
+      </AnimatedPage>
+    </div>
   )
 }
 

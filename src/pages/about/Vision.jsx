@@ -57,7 +57,7 @@ const Vision = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 place-items-center">
 
                     {/* Card 1 */}
-                    <div className="bg-[#1C4746] transition duration-200  text-white rounded-2xl w-[276px] h-[317px] pt-[74px] px-[38px] mx-auto hover:shadow-[0_4px_7px_0_#00000040] hover:bg-white hover:text-[#1C4746]">
+                    <div className="bg-[#1C4746] transition duration-200  text-white rounded-2xl w-[276px] h-[317px] pt-[74px] px-[28px] mx-auto hover:shadow-[0_4px_7px_0_#00000040] hover:bg-white hover:text-[#1C4746]">
                         <h3 className="space-grotesk font-bold text-[20px] leading-[20px] tracking-[0.03em] mb-[22px]">Integrity</h3>
                         <p className="poppins font-medium text-[14px] leading-[31px] tracking-[0.03em] opacity-90">
                             We act ethically and responsibly in every financial and legal decision.
@@ -73,15 +73,15 @@ const Vision = () => {
                     </div>
 
                     {/* Card 3 */}
-                    <div className="bg-[#1C4746] transition duration-200  text-white rounded-2xl w-[276px] h-[317px] pt-[74px] pl-[20px] px-[8px] mx-auto hover:shadow-[0_4px_7px_0_#00000040] hover:bg-white hover:text-[#1C4746]">
-                        <h3 className="space-grotesk font-bold text-[20px] leading-[20px] tracking-[0.03em] mb-[22px]">Professional Excellence</h3>
+                    <div className="bg-[#1C4746] transition duration-200  text-white rounded-2xl w-[276px] h-[317px] pt-[74px]  px-[28px]  mx-auto hover:shadow-[0_4px_7px_0_#00000040] hover:bg-white hover:text-[#1C4746]">
+                        <h3 className="space-grotesk font-bold text-[20px] leading-[23px] tracking-[0.03em] mb-[22px]">Professional Excellence</h3>
                         <p className="poppins font-medium text-[14px] leading-[31px] tracking-[0.03em] opacity-90">
                             We uphold the highest standards in tax compliance, financial planning, and legal advisory.
                         </p>
                     </div>
 
                     {/* Card 4 */}
-                    <div className="bg-[#1C4746] transition duration-200  text-white rounded-2xl w-[276px] h-[317px] pt-[74px] px-[38px] mx-auto hover:shadow-[0_4px_7px_0_#00000040] hover:bg-white hover:text-[#1C4746]">
+                    <div className="bg-[#1C4746] transition duration-200  text-white rounded-2xl w-[276px] h-[317px] pt-[74px] px-[28px] mx-auto hover:shadow-[0_4px_7px_0_#00000040] hover:bg-white hover:text-[#1C4746]">
                         <h3 className="space-grotesk font-bold text-[20px] leading-[20px] tracking-[0.03em] mb-[22px]">Client Satisfaction</h3>
                         <p className="poppins font-medium text-[14px] leading-[31px] tracking-[0.03em] opacity-90">
                             We prioritize client needs, accuracy, and timely service.

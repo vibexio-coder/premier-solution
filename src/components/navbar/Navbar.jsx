@@ -31,24 +31,43 @@ const Navbar = () => {
     if (activeItem) moveLine(activeItem);
   }, [location.pathname]);
 
+  // ✅ LOCK BACKGROUND SCROLL WHEN MENU IS OPEN
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+      document.body.style.height = "100vh";
+    } else {
+      document.body.style.overflow = "auto";
+      document.body.style.height = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+      document.body.style.height = "auto";
+    };
+  }, [open]);
+
   return (
-    <div className="bg-[#1C4746] text-white shadow-[0px_4px_6px_-2px_rgba(237,237,237,0.15)] relative z-50">
+    // ✅ FIXED ON MOBILE, NORMAL ON DESKTOP
+    <div className="bg-[#1C4746] text-white shadow-[0px_4px_6px_-2px_rgba(237,237,237,0.15)]
+                    fixed md:relative top-0 left-0 w-full z-50">
 
       {/* ================= TOP BAR ================= */}
       <div className="hidden md:flex justify-between items-center poppins font-semibold text-[14px] leading-3.5 tracking-[0.05em] pt-5 pb-2 px-6 sm:px-10 lg:px-16 xl:px-[90px]">
         <p>Professional Tax, Finance & Legal Services</p>
 
         <div className="flex items-center gap-[29px]">
-          <a href="tel:+917708566732"
-            aria-label="Call us" className="flex items-center text-[12px] gap-3">
+          <a href="tel:+917708566732" className="flex items-center text-[12px] gap-3">
             <PhoneIcon />
             7708566732
           </a>
 
-          <a href="https://wa.me/917708566732?text=Hello%20I%20would%20like%20to%20know%20more"
+          <a
+            href="https://wa.me/917708566732"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Chat on WhatsApp" className="flex items-center text-[12px] bg-white text-[#1c4746] rounded-[20px] py-[7px] px-5 gap-3">
+            className="flex items-center text-[12px] bg-white text-[#1c4746] rounded-[20px] py-[7px] px-5 gap-3"
+          >
             <WhatsAppIcon />
             Whatsapp
           </a>
@@ -57,15 +76,17 @@ const Navbar = () => {
 
       {/* ================= MAIN NAV ================= */}
       <div className="flex justify-between items-center px-6 sm:px-10 lg:px-16 xl:px-[90px] py-3">
-        <Link to='/'>
-          <img className="w-[92px] h-[61px]" src={logo} alt="Logo" />
+        <Link to="/">
+          <img className="w-[63px] h-[48px] md:w-[92px] md:h-[61px]" src={logo} alt="Logo" />
         </Link>
-        {/* ================= DESKTOP MENU ================= */}
+
+        {/* DESKTOP MENU */}
         <div className="relative hidden md:block">
           <ul
             ref={navRef}
             onMouseLeave={resetLineToActive}
-            className="flex items-center gap-[92px] space-grotesk font-light md:text-[17px] lg:text-[20px] leading-5 tracking-[0.03em]">
+            className="flex items-center gap-[92px] space-grotesk font-light md:text-[17px] lg:text-[20px]"
+          >
             {["/", "/about", "/services", "/contact"].map((path, i) => {
               const labels = ["Home", "About", "Services", "Contact"];
               return (
@@ -74,7 +95,7 @@ const Navbar = () => {
                     to={path}
                     end={path === "/"}
                     className={({ isActive }) =>
-                      `cursor-pointer pb-[10px] ${isActive ? "active-link font-bold" : ""}`
+                      `pb-[10px] ${isActive ? "active-link font-bold" : ""}`
                     }
                     onMouseEnter={(e) => moveLine(e.target)}
                   >
@@ -85,31 +106,30 @@ const Navbar = () => {
             })}
           </ul>
 
-          <div
-            ref={lineRef}
-            className="absolute -bottom-3 transition-all duration-300 ease-in-out"
-          >
+          <div ref={lineRef} className="absolute -bottom-3 transition-all duration-300">
             <Line />
           </div>
         </div>
 
-        {/* ================= MOBILE TOGGLE ================= */}
+        {/* MOBILE TOGGLE */}
         <button onClick={() => setOpen(!open)} className="md:hidden z-50">
-          {open ? <X size={32} /> : <Menu size={32} />}
+          {open ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
       {/* ================= OVERLAY ================= */}
       <div
-        className={`fixed inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300 ${open ? "opacity-100 visible" : "opacity-0 invisible"
-          }`}
+        className={`fixed inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300
+          ${open ? "opacity-100 visible" : "opacity-0 invisible"}`}
         onClick={() => setOpen(false)}
       />
 
       {/* ================= MOBILE MENU ================= */}
       <div
-        className={`fixed top-0 right-0 h-full w-[80%] sm:w-[60%] bg-[#1C4746] px-6 py-10 space-y-6 space-grotesk text-[20px] tracking-[0.03em] transform transition-transform duration-300 ${open ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`fixed top-0 right-0 h-full w-[80%] sm:w-[60%] bg-[#1C4746]
+          px-6 py-20 space-y-6 space-grotesk text-[20px]
+          transform transition-transform duration-300
+          ${open ? "translate-x-0" : "translate-x-full"}`}
       >
         {["/", "/about", "/services", "/contact"].map((path, i) => {
           const labels = ["Home", "About", "Services", "Contact"];
@@ -120,7 +140,6 @@ const Navbar = () => {
           );
         })}
 
-        {/* MOBILE CONTACT */}
         <div className="pt-6 flex flex-col gap-10 poppins text-[20px]">
           <button className="flex items-center gap-3">
             <PhoneIcon />

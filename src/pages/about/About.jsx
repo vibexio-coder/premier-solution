@@ -7,12 +7,15 @@ import AnimatedPage from '../../AnimatedPage'
 
 const About = () => {
   return (
+        <div className="mt-15 md:mt-0">
+
     <AnimatedPage>
         <AboutLandingPage/>
         <WeAre/>
         <Vision/>
         <WeAreDifferent/>
     </AnimatedPage>
+        </div>
   )
 }
 

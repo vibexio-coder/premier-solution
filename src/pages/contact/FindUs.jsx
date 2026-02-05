@@ -354,7 +354,8 @@ const FindUs = () => {
                                     value={formData.name}
                                     onChange={handleChange}
                                     placeholder="Enter your name"
-                                    className="w-full h-[42px] rounded-[30px] px-5 bg-white"
+                                    className="w-full h-[42px] rounded-[30px] px-5 bg-white border-transparent
+             focus:outline-none focus:ring-2 focus:ring-[#496C6B] focus:border-[#496C6B]"
                                 />
                                 {errors.name && (
                                     <p className="text-red-500 text-sm mt-1 ml-2">{errors.name}</p>
@@ -371,7 +372,8 @@ const FindUs = () => {
                                     onChange={handleChange}
                                     onFocus={handlePhoneFocus}
                                     onClick={handlePhoneClick}
-                                    className="w-full h-[42px] rounded-[30px] px-5 bg-white"
+                                    className="w-full h-[42px] rounded-[30px] px-5 bg-white border-transparent
+             focus:outline-none focus:ring-2 focus:ring-[#496C6B] focus:border-[#496C6B]"
                                 />
                                 {errors.phone && (
                                     <p className="text-red-500 text-sm mt-1 ml-2">{errors.phone}</p>
@@ -387,8 +389,9 @@ const FindUs = () => {
                                     value={formData.email}
                                     onChange={handleChange}
                                     placeholder="example@domain.com"
-                                    className="w-full h-[42px] rounded-[30px] px-5 bg-white"
-                                />
+                                    className="w-full h-[42px] rounded-[30px] px-5 bg-white border-transparent
+             focus:outline-none focus:ring-2 focus:ring-[#496C6B] focus:border-[#496C6B]"
+                                /> 
                                 {errors.email && (
                                     <p className="text-red-500 text-sm mt-1 ml-2">{errors.email}</p>
                                 )}
@@ -402,7 +405,8 @@ const FindUs = () => {
                                     name="service"
                                     value={formData.service}
                                     onChange={handleChange}
-                                    className="w-full h-[42px] rounded-[30px] px-5 bg-white"
+                                    className="w-full h-[42px] rounded-[30px] px-5 bg-white border-transparent
+             focus:outline-none focus:ring-2 focus:ring-[#496C6B] focus:border-[#496C6B]"
                                 />
                             </div>
 
@@ -415,7 +419,8 @@ const FindUs = () => {
                                     value={formData.message}
                                     onChange={handleChange}
                                     rows="4"
-                                    className="w-full rounded-[30px] px-5 py-3 bg-white resize-none"
+                                    className="w-full rounded-[30px] px-5 py-3 bg-white resize-none border-transparent
+             focus:outline-none focus:ring-2 focus:ring-[#496C6B] focus:border-[#496C6B]"
                                 />
                             </div>
 
