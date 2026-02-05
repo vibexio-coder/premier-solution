@@ -4,7 +4,7 @@ import FindUs from './FindUs'
 
 const Contact = () => {
     return (
-        <div>
+    <div className="mt-15 md:mt-0">
             <ContactLandingPage />
             <FindUs />
         </div>
