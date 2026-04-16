@@ -173,37 +173,43 @@ const FindUs = () => {
         if (!validate()) return;
 
         try {
-            // Use formData instead of JSON for CORS compatibility
-            const formDataToSend = new FormData();
-            formDataToSend.append("name", formData.name);
-            formDataToSend.append("phone", formData.phone);
-            formDataToSend.append("email", formData.email);
-            formDataToSend.append("service", formData.service || "");
-            formDataToSend.append("message", formData.message || "");
-
-            const response = await fetch(
-                "https://script.google.com/macros/s/AKfycby-wskqj7IIL00Q-ulSSMpQN4iOgBtAz-zZnq6W0n8Bd7CkGvUbG4-OgRJDngnhhE1Whw/exec",
-                {
-                    method: "POST",
-                    mode: "no-cors",
-                    body: formDataToSend
+            // WhatsApp Integration
+            const WHATSAPP_NUMBER = "+918610246393"; // Sourced from your ChatWidget
+            const cleanNumber = WHATSAPP_NUMBER.replace(/\D/g, "");
+            
+            const waMessage = `*New Contact Form Submission*\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*Email:* ${formData.email}\n*Service:* ${formData.service || "Not specified"}\n*Message:* ${formData.message || "None"}`;
+            const encodedMessage = encodeURIComponent(waMessage);
+            
+            const appUrl = `whatsapp://send?phone=${cleanNumber}&text=${encodedMessage}`;
+            const webUrl = `https://web.whatsapp.com/send?phone=${cleanNumber}&text=${encodedMessage}`;
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            
+            // Show short success notification before redirect
+            showNotification("success", "Redirecting to WhatsApp...");
+            
+            setTimeout(() => {
+                if (isMobile) {
+                    window.location.href = appUrl;
+                } else {
+                    window.location.href = appUrl;
+                    setTimeout(() => {
+                        window.open(webUrl, "_blank");
+                    }, 1500);
                 }
-            );
+                
+                // Reset form but keep +91 in phone
+                setFormData({
+                    name: "",
+                    phone: "+91 ",
+                    email: "",
+                    service: "",
+                    message: "",
+                });
+            }, 1000);
 
-            // Show success notification
-            showNotification("success", "Message sent successfully! We'll contact you soon.");
-
-            // Reset form but keep +91 in phone
-            setFormData({
-                name: "",
-                phone: "+91 ",
-                email: "",
-                service: "",
-                message: "",
-            });
         } catch (err) {
             console.error("Submission error:", err);
-            showNotification("error", "Failed to send message. Please try again.");
+            showNotification("error", "Failed to redirect to WhatsApp. Please try again.");
         }
     };
 
@@ -422,9 +428,7 @@ const FindUs = () => {
                                     className="w-full rounded-[30px] px-5 py-3 bg-white resize-none border-transparent
              focus:outline-none focus:ring-2 focus:ring-[#496C6B] focus:border-[#496C6B]"
                                 />
-                            </div>
-
-                            <div className="flex justify-center pt-2">
+                                    <div className="flex justify-center pt-2">
                                 <button
                                     type="submit"
                                     className="bg-[#1C4746] text-white px-7 py-3 rounded-full flex items-center gap-4 cursor-pointer"
@@ -432,6 +436,7 @@ const FindUs = () => {
                                     <SendIcon />
                                     Send Message
                                 </button>
+                            </div>
                             </div>
                         </form>
                     </div>
