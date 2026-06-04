@@ -3,7 +3,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
-
+import ChatWidget from "./components/ChatWidget";
 import Home from "./pages/home/Home";
 import About from "./pages/about/About";
 import Services from "./pages/services/Services";
@@ -33,6 +33,7 @@ const App = () => {
       </main>
 
       <Footer />
+      <ChatWidget />
     </div>
   );
 };
